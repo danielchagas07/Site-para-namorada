@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Livia Archanjo Deretti</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Lívia</title>
+
+<!--
+  ============================================================
+  COMO PERSONALIZAR ESTA PÁGINA
+  ============================================================
+  1. FOTOS
+     Procure por <img src="foto1.jpg" ...> (e foto2, foto3...) no
+     mural "Nossos momentos". Coloque suas fotos na MESMA PASTA
+     deste arquivo .html com esses nomes (foto1.jpg, foto2.jpg...),
+     ou troque o "src" pelo caminho/nome real da sua imagem.
+     Enquanto não houver foto, aparece um quadradinho de espera —
+     não quebra o layout.
+
+  2. TEXTOS
+     - A carta (dentro do <div class="carta-texto">) está com um
+       texto genérico. Troque pelas suas palavras e memórias reais.
+     - Troque "[o seu nome]" pelo seu nome, no final da carta e no rodapé.
+     - Os "motivos" e as legendas das fotos também são só sugestões.
+
+  3. DATA DE INÍCIO DO NAMORO (contador de dias)
+     Procure por "dataInicio" no <script> no final do arquivo e
+     troque pela data certa, formato 'AAAA-MM-DD'.
+
+  4. CORES (opcional)
+     As cores estão centralizadas em ":root" no <style>, logo abaixo.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Jost:wght@500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --night-950:#170f22;
+    --night-800:#2a1a3d;
+    --night-600:#4a2b5c;
+    --rose:#e6a4c4;
+    --rose-soft:#f3c9dc;
+    --gold:#d1a668;
+    --gold-soft:#e9caa0;
+    --paper:#fbf1e7;
+    --paper-2:#f4e6d6;
+    --ink:#2b1a3d;
+    --ink-soft:#6a5678;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Lora', serif;
+    overflow-x:hidden;
+  }
+
+  img{ max-width:100%; display:block; }
+
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    font-size:.72rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+
+  section{ position:relative; padding:6rem 1.5rem; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:radial-gradient(ellipse at 50% -10%, var(--night-600), var(--night-950) 65%);
+    color:var(--paper);
+    overflow:hidden;
+    padding:2rem 1.5rem;
+  }
+
+  .estrela{
+    position:absolute;
+    width:3px; height:3px;
+    background:var(--paper);
+    border-radius:50%;
+    opacity:.5;
+    animation:piscar 3.5s ease-in-out infinite;
+  }
+  @keyframes piscar{ 0%,100%{opacity:.15;} 50%{opacity:.85;} }
+
+  .flutuante{
+    position:absolute;
+    bottom:-10%;
+    color:var(--rose-soft);
+    opacity:.55;
+    font-size:1.4rem;
+    animation:subir linear infinite;
+    pointer-events:none;
+  }
+  @keyframes subir{
+    0%{ transform:translateY(0) translateX(0) rotate(0deg); opacity:0; }
+    10%{ opacity:.6; }
+    90%{ opacity:.4; }
+    100%{ transform:translateY(-115vh) translateX(var(--drift,20px)) rotate(25deg); opacity:0; }
+  }
+
+  .hero-eyebrow{ color:var(--gold-soft); margin-bottom:1.4rem; }
+
+  .hero-titulo{
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    font-size:clamp(3.2rem, 12vw, 6.5rem);
+    line-height:1;
+    background:linear-gradient(120deg, var(--paper), var(--rose-soft) 55%, var(--gold-soft));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hero-sub{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(1rem, 2.4vw, 1.35rem);
+    color:var(--paper);
+    opacity:.85;
+    margin-top:1.6rem;
+    max-width:32ch;
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:2.4rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.5rem;
+    color:var(--paper);
+    opacity:.6;
+    font-family:'Jost', sans-serif;
+    font-size:.68rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    animation:balancar 2.6s ease-in-out infinite;
+  }
+  @keyframes balancar{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(8px);} }
+
+  /* ---------- CONTADOR ---------- */
+  .contador-secao{
+    background:linear-gradient(180deg, var(--night-950), var(--night-800));
+    color:var(--paper);
+    text-align:center;
+    padding:5rem 1.5rem;
+  }
+  .contador-numero{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:clamp(3.2rem, 10vw, 5.5rem);
+    background:linear-gradient(120deg, var(--gold-soft), var(--rose-soft));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    line-height:1;
+  }
+  .contador-legenda{
+    font-family:'Jost', sans-serif;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    font-size:.75rem;
+    color:var(--rose-soft);
+    margin-top:.9rem;
+  }
+  .contador-extra{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    opacity:.75;
+    margin-top:1rem;
+    font-size:.95rem;
+  }
+
+  /* ---------- Reveal genérico ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .9s ease, transform .9s ease;
+  }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+
+  /* ---------- CARTA ---------- */
+  .carta-secao{
+    text-align:center;
+    background:var(--paper);
+  }
+  .titulo-secao{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:clamp(1.8rem, 4vw, 2.6rem);
+    color:var(--ink);
+    margin:.6rem 0 .4rem;
+  }
+  .subtitulo-secao{
+    font-family:'Lora', serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:1rem;
+    margin-bottom:3rem;
+  }
+
+  .envelope-wrap{ display:flex; justify-content:center; }
+
+  .envelope{
+    position:relative;
+    width:280px;
+    height:180px;
+    cursor:pointer;
+    outline-offset:6px;
+  }
+  .envelope:focus-visible{ outline:2px solid var(--rose); border-radius:6px; }
+
+  .envelope-back{
+    position:absolute; inset:0;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold) 70%);
+    border-radius:8px;
+    box-shadow:0 25px 45px -15px rgba(43,26,61,.45);
+    z-index:1;
+  }
+
+  .envelope-flap{
+    position:absolute;
+    top:0; left:0; width:100%; height:0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:100px solid var(--gold-soft);
+    filter:brightness(.96);
+    transform-origin:top center;
+    transition:transform .8s cubic-bezier(.4,0,.2,1);
+    z-index:3;
+  }
+  .envelope.aberto .envelope-flap{ transform:rotateX(180deg); }
+
+  .selo-cera{
+    position:absolute;
+    top:100px; left:50%;
+    width:52px; height:52px;
+    background:radial-gradient(circle at 35% 30%, #d97fa0, #a8355c 75%);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Dancing Script', cursive;
+    font-size:1.5rem;
+    color:var(--paper);
+    box-shadow:inset 0 -3px 6px rgba(0,0,0,.3), 0 6px 14px rgba(0,0,0,.3);
+    z-index:4;
+    transition:transform .5s ease, opacity .5s ease;
+  }
+  .envelope.aberto .selo-cera{ opacity:0; transform:translate(-50%,-50%) scale(.4); }
+
+  .dica-envelope{
+    font-family:'Jost', sans-serif;
+    font-size:.7rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    text-align:center;
+    margin-top:1.4rem;
+    transition:opacity .4s ease;
+  }
+  .envelope-wrap.aberto-pai .dica-envelope{ opacity:0; }
+
+  .carta-texto{
+    max-width:560px;
+    margin:0 auto;
+    background:var(--paper-2);
+    border-radius:4px;
+    padding:2.6rem 2.2rem;
+    text-align:left;
+    box-shadow:0 20px 40px -20px rgba(43,26,61,.25);
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition:max-height 1s ease, opacity .8s ease .15s, margin-top .8s ease;
+  }
+  .carta-texto.visible{
+    max-height:1600px;
+    opacity:1;
+    margin-top:2.4rem;
+  }
+  .carta-saudacao{
+    font-family:'Dancing Script', cursive;
+    font-size:2rem;
+    color:var(--ink);
+    margin-bottom:1.1rem;
+  }
+  .carta-texto p{
+    font-size:1.02rem;
+    line-height:1.85;
+    color:var(--ink);
+    margin-bottom:1.1rem;
+  }
+  .carta-assinatura{
+    font-family:'Dancing Script', cursive;
+    font-size:1.5rem;
+    color:var(--ink);
+    margin-top:1.6rem;
+  }
+  .carta-data{
+    font-family:'Jost', sans-serif;
+    font-size:.75rem;
+    color:var(--ink-soft);
+    letter-spacing:.08em;
+    margin-top:.3rem;
+  }
+
+  /* ---------- GALERIA ---------- */
+  .galeria-secao{ background:var(--paper-2); text-align:center; }
+
+  .mural{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:2.4rem 1.6rem;
+    max-width:920px;
+    margin:0 auto;
+    padding-top:1rem;
+  }
+
+  .polaroid{
+    background:var(--paper);
+    padding:.8rem .8rem 1.6rem;
+    box-shadow:0 14px 26px -12px rgba(43,26,61,.35);
+    position:relative;
+  }
+  .polaroid:nth-child(1){ transform:rotate(-4deg); }
+  .polaroid:nth-child(2){ transform:rotate(3deg); }
+  .polaroid:nth-child(3){ transform:rotate(-2deg); }
+  .polaroid:nth-child(4){ transform:rotate(2deg); }
+  .polaroid:nth-child(5){ transform:rotate(-3deg); }
+  .polaroid:nth-child(6){ transform:rotate(4deg); }
+  .polaroid:hover{ transform:rotate(0deg) scale(1.04); transition:transform .35s ease; z-index:5; }
+
+  .fita{
+    position:absolute;
+    top:-10px; left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+    width:56px; height:20px;
+    background:rgba(233,202,160,.75);
+    box-shadow:0 2px 4px rgba(0,0,0,.12);
+  }
+
+  .foto-caixa{
+    position:relative;
+    width:100%;
+    aspect-ratio:1/1;
+    background:
+      linear-gradient(135deg, var(--paper-2), var(--gold-soft) 140%);
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .foto-caixa img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+  }
+  .foto-marcador{
+    display:flex; flex-direction:column; align-items:center; gap:.3rem;
+    color:var(--ink-soft);
+    font-family:'Jost', sans-serif;
+    font-size:.62rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+  .foto-marcador span:first-child{ font-size:1.4rem; }
+
+  .polaroid-legenda{
+    font-family:'Dancing Script', cursive;
+    font-size:1.15rem;
+    color:var(--ink);
+    text-align:center;
+    margin-top:.7rem;
+  }
+
+  /* ---------- MOTIVOS ---------- */
+  .motivos-secao{ background:var(--paper); text-align:center; }
+
+  .lista-motivos{
+    list-style:none;
+    max-width:640px;
+    margin:0 auto;
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    gap:1.3rem;
+  }
+  .lista-motivos li{
+    display:flex;
+    gap:.9rem;
+    align-items:flex-start;
+    font-size:1.05rem;
+    line-height:1.6;
+    color:var(--ink);
+  }
+  .lista-motivos li::before{
+    content:'♡';
+    color:var(--rose);
+    font-size:1.2rem;
+    flex-shrink:0;
+    margin-top:.1rem;
+  }
+
+  /* ---------- FECHAMENTO ---------- */
+  .fechamento{
+    background:radial-gradient(ellipse at 50% 110%, var(--night-600), var(--night-950) 70%);
+    color:var(--paper);
+    text-align:center;
+    padding-bottom:7rem;
+  }
+  .fechamento-titulo{
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    font-size:clamp(2.4rem, 7vw, 3.6rem);
+    background:linear-gradient(120deg, var(--paper), var(--rose-soft));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .fechamento-sub{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    opacity:.8;
+    margin-top:.8rem;
+    margin-bottom:2.4rem;
+  }
+
+  .botao-amor{
+    font-family:'Jost', sans-serif;
+    font-weight:600;
+    letter-spacing:.06em;
+    font-size:.95rem;
+    color:var(--ink);
+    background:linear-gradient(120deg, var(--rose-soft), var(--gold-soft));
+    border:none;
+    padding:.95rem 2.1rem;
+    border-radius:999px;
+    cursor:pointer;
+    box-shadow:0 14px 28px -12px rgba(230,164,196,.5);
+    transition:transform .25s ease;
+  }
+  .botao-amor:hover{ transform:translateY(-3px); }
+  .botao-amor:focus-visible{ outline:2px solid var(--paper); outline-offset:4px; }
+
+  .rodape{
+    font-family:'Jost', sans-serif;
+    font-size:.7rem;
+    letter-spacing:.1em;
+    opacity:.5;
+    margin-top:3rem;
+  }
+
+  .coracao-voando{
+    position:fixed;
+    pointer-events:none;
+    color:var(--rose-soft);
+    font-size:1.1rem;
+    z-index:999;
+    animation:voar 1.5s ease-out forwards;
+  }
+  @keyframes voar{
+    to{ transform:translate(var(--dx,0), -160px) rotate(var(--rot,0deg)); opacity:0; }
+  }
+
+  @media (max-width:640px){
+    section{ padding:4.5rem 1.2rem; }
+    .mural{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.8rem 1.2rem; }
+    .envelope{ width:230px; height:150px; }
+    .envelope-flap{ border-left:115px solid transparent; border-right:115px solid transparent; border-top:84px solid var(--gold-soft); }
+    .selo-cera{ top:84px; width:44px; height:44px; font-size:1.25rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .flutuante, .estrela, .scroll-cue{ animation:none !important; opacity:0 !important; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .polaroid:hover{ transform:none; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <span class="estrela" style="top:12%; left:18%; animation-delay:.2s;"></span>
+    <span class="estrela" style="top:22%; left:74%; animation-delay:1.1s;"></span>
+    <span class="estrela" style="top:35%; left:40%; animation-delay:.6s;"></span>
+    <span class="estrela" style="top:15%; left:55%; animation-delay:1.8s;"></span>
+    <span class="estrela" style="top:60%; left:10%; animation-delay:.9s;"></span>
+    <span class="estrela" style="top:70%; left:85%; animation-delay:2.2s;"></span>
+    <span class="estrela" style="top:8%; left:88%; animation-delay:1.4s;"></span>
+
+    <span class="flutuante" style="left:15%; animation-duration:11s; animation-delay:0s; --drift:30px;">♡</span>
+    <span class="flutuante" style="left:35%; animation-duration:14s; animation-delay:3s; --drift:-25px;">✦</span>
+    <span class="flutuante" style="left:60%; animation-duration:12s; animation-delay:1.5s; --drift:20px;">♡</span>
+    <span class="flutuante" style="left:80%; animation-duration:15s; animation-delay:4.5s; --drift:-15px;">♡</span>
+    <span class="flutuante" style="left:48%; animation-duration:10s; animation-delay:6s; --drift:10px;">✦</span>
+
+    <p class="hero-eyebrow eyebrow">uma pequena homenagem de primeiro mês de namoro</p>
+    <h1 class="hero-titulo">Para Lívia</h1>
+    <p class="hero-sub">Este espaço nasceu só pra te dizer o quanto você importa.</p>
+
+    <span class="scroll-cue">role para continuar ↓</span>
+  </section>
+
+  <!-- ===================== CONTADOR ===================== -->
+  <section class="contador-secao reveal" id="contador">
+    <p class="contador-legenda">juntos há</p>
+    <p class="contador-numero" id="diasJuntos">0</p>
+    <p class="contador-legenda">dias</p>
+    <p class="contador-extra">e cada um deles valeu a pena.</p>
+  </section>
+
+  <!-- ===================== CARTA ===================== -->
+  <section class="carta-secao reveal">
+    <p class="eyebrow" style="color:var(--ink-soft);">uma carta</p>
+    <h2 class="titulo-secao">Antes de continuar...</h2>
+    <p class="subtitulo-secao">tem uma carta esperando por você aqui embaixo.</p>
+
+    <div class="envelope-wrap" id="envelopeWrap">
+      <div
+        class="envelope"
+        id="envelope"
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+        aria-label="Abrir carta"
+        onclick="abrirCarta()"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();abrirCarta();}"
+      >
+        <div class="envelope-back"></div>
+        <div class="envelope-flap"></div>
+        <div class="selo-cera">L</div>
+      </div>
+    </div>
+    <p class="dica-envelope">toque no selo para abrir</p>
+
+    <div class="carta-texto" id="cartaTexto">
+      <p class="carta-saudacao">Lívia,</p>
+      <p>Tem coisas que a gente sabe explicar e coisas que só dá pra sentir. Você é a segunda.</p>
+      <p>Antes de te conhecer, eu não sabia que dava pra sorrir sozinho só de lembrar de alguém. Não sabia que um dia comum podia virar o meu favorito só porque você estava nele.</p>
+      <p>Você trouxe leveza pros meus dias difíceis e motivo extra pros dias bons. E o mais bonito é que, com você, eu não preciso ser perfeito — só preciso ser eu, e isso já basta.</p>
+      <p>Essa página é pequena. O que eu sinto por você, não é.</p>
+      <p class="carta-assinatura">Com todo o meu amor,<br>Daniel Chagas</p>
+      <p class="carta-data">Nosso dia:25/07/2026</p>
+    </div>
+  </section>
+
+  <!-- ===================== GALERIA ===================== -->
+  <section class="galeria-secao reveal">
+    <p class="eyebrow" style="color:var(--ink-soft);">um mural</p>
+    <h2 class="titulo-secao">Nossos momentos</h2>
+    <p class="subtitulo-secao">Cada foto aqui guarda um pedacinho de nós.</p>
+
+    <div class="mural">
+      <div class="polaroid">
+        <span class="fita"></span>
+        <div class="foto-caixa">
+          <div class="foto-marcador"><span>🤍</span><span>foto 1</span></div>
+          <img src="foto1.jpeg" alt="Nós dois" onerror="this.style.display='none'">
+        </div>
+        <p class="polaroid-legenda">"Nossa primeira viagem sozinhos juntos"</p>
+      </div>
+
+      <div class="polaroid">
+        <span class="fita"></span>
+        <div class="foto-caixa">
+          <div class="foto-marcador"><span>🤍</span><span>foto 2</span></div>
+          <img src="foto2.jpeg" alt="Nós dois" onerror="this.style.display='none'">
+        </div>
+        <p class="polaroid-legenda">"Primeiro passeio a cavalo da liloca"</p>
+      </div>
+
+      <div class="polaroid">
+        <span class="fita"></span>
+        <div class="foto-caixa">
+          <div class="foto-marcador"><span>🤍</span><span>foto 3</span></div>
+          <img src="foto3.jpeg" alt="Nós dois" onerror="this.style.display='none'">
+        </div>
+        <p class="polaroid-legenda">"Depois de um jantar maravilhoso com você"</p>
+      </div>
+
+      <div class="polaroid">
+        <span class="fita"></span>
+        <div class="foto-caixa">
+          <div class="foto-marcador"><span>🤍</span><span>foto 4</span></div>
+          <img src="foto4.jpeg" alt="Nós dois" onerror="this.style.display='none'">
+        </div>
+        <p class="polaroid-legenda">"Dia especial da sua formatura liloca"</p>
+      </div>
+
+      <div class="polaroid">
+        <span class="fita"></span>
+        <div class="foto-caixa">
+          <div class="foto-marcador"><span>🤍</span><span>foto 5</span></div>
+          <img src="foto5.jpeg" alt="Nós dois" onerror="this.style.display='none'">
+        </div>
+        <p class="polaroid-legenda">"Liloca, sempre a melhor parte do dia"</p>
+      </div>
+
+      <div class="polaroid">
+        <span class="fita"></span>
+        <div class="foto-caixa">
+          <div class="foto-marcador"><span>🤍</span><span>foto 6</span></div>
+          <img src="foto6.jpeg" alt="Nós dois" onerror="this.style.display='none'">
+        </div>
+        <p class="polaroid-legenda">"Liloca brilhando mais que qualquer luz do lugar"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MOTIVOS ===================== -->
+  <section class="motivos-secao reveal">
+    <p class="eyebrow" style="color:var(--ink-soft);">uma lista incompleta</p>
+    <h2 class="titulo-secao">Por que eu te amo</h2>
+    <p class="subtitulo-secao">(a lista real é bem maior que essa, mas vou por essas aqui)</p>
+
+    <ul class="lista-motivos">
+      <li>Pelo jeito que você ri de coisa boba e contagia todo mundo ao redor.</li>
+      <li>Por se importar de verdade com as pessoas que você ama.</li>
+      <li>Porque do seu lado, as coisas difíceis ficam mais leves.</li>
+      <li>Pela sua força nos dias em que nem tudo é fácil.</li>
+      <li>Por ser exatamente você, sem precisar ser mais ninguém.</li>
+      <li>Porque, com você, eu quero um monte de "de novo".</li>
+    </ul>
+  </section>
+
+  <!-- ===================== FECHAMENTO ===================== -->
+  <section class="fechamento reveal">
+    <h2 class="fechamento-titulo">Eu te amo, Lívia.</h2>
+    <p class="fechamento-sub">hoje, ontem e amanhã também.</p>
+
+    <button class="botao-amor" onclick="estourarCoracoes(event)">toque aqui ❤</button>
+
+    <p class="rodape">feito com carinho por Daniel Chagas <span id="anoAtual"></span></p>
+  </section>
+
+<script>
+  document.getElementById('anoAtual').textContent = new Date().getFullYear();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // ---- Contador de dias juntos ----
+    // Troque a data abaixo pela data em que vocês começaram a namorar (AAAA-MM-DD)
+    const dataInicio = new Date('2024-02-25T00:00:00'); // <-- EDITE AQUI
+    const hoje = new Date('2026-08-25T13:00:00'); // <-- EDITE AQUI
+    const diffDias = Math.max(0, Math.floor((hoje - dataInicio) / (1000 * 60 * 60 * 24)));
+
+    const contadorEl = document.getElementById('diasJuntos');
+    const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animarContador(el, alvo){
+      if(reduzMovimento){ el.textContent = alvo.toLocaleString('pt-BR'); return; }
+      const duracao = 1400;
+      const inicioTempo = performance.now();
+      function passo(t){
+        const progresso = Math.min((t - inicioTempo) / duracao, 1);
+        el.textContent = Math.floor(progresso * alvo).toLocaleString('pt-BR');
+        if(progresso < 1) requestAnimationFrame(passo);
+      }
+      requestAnimationFrame(passo);
+    }
+
+    // ---- Revelar seções ao rolar ----
+    const revelaveis = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entradas) => {
+      entradas.forEach(entrada => {
+        if(entrada.isIntersecting){
+          entrada.target.classList.add('in-view');
+          if(entrada.target.id === 'contador' && !entrada.target.dataset.animado){
+            entrada.target.dataset.animado = 'true';
+            animarContador(contadorEl, diffDias);
+          }
+          observer.unobserve(entrada.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    revelaveis.forEach(el => observer.observe(el));
+  });
+
+  function abrirCarta(){
+    const envelope = document.getElementById('envelope');
+    const envelopeWrap = document.getElementById('envelopeWrap');
+    const carta = document.getElementById('cartaTexto');
+    envelope.classList.add('aberto');
+    envelopeWrap.classList.add('aberto-pai');
+    carta.classList.add('visible');
+    envelope.setAttribute('aria-expanded', 'true');
+  }
+
+  function estourarCoracoes(evento){
+    const botao = evento.currentTarget;
+    const rect = botao.getBoundingClientRect();
+    for(let i = 0; i < 12; i++){
+      const coracao = document.createElement('span');
+      coracao.className = 'coracao-voando';
+      coracao.textContent = '❤';
+      coracao.style.left = (rect.left + rect.width / 2 + (Math.random() * 90 - 45)) + 'px';
+      coracao.style.top = (rect.top + rect.height / 2) + 'px';
+      coracao.style.setProperty('--dx', (Math.random() * 160 - 80) + 'px');
+      coracao.style.setProperty('--rot', (Math.random() * 60 - 30) + 'deg');
+      document.body.appendChild(coracao);
+      setTimeout(() => coracao.remove(), 1600);
+    }
+  }
+</script>
+
+</body>
+</html>
+    
+</body>
+</html>
