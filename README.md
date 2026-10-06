@@ -38,7 +38,7 @@ Tecnologias
 
 Como acessar
 
-Basta clicar no link: **[COLE-O-LINK-DO-SITE-AQUI](COLE-O-LINK-DO-SITE-AQUI)**
+Basta clicar no link: (https://for-liviaderreti.netlify.app)
 
 Como rodar localmente
 
@@ -72,7 +72,7 @@ projeto/
 
 Autor
 
-Projeto desenvolvido individualmente por **SEU NOME**.
+Projeto desenvolvido individualmente por Daniel Chagas
 
 [![GitHub](https://img.shields.io/badge/GitHub-SEU--USUARIO-181717?logo=github)](https://github.com/SEU-USUARIO)
 
